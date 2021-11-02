@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+{% if user.is_authenticated %}
+{% endif %}
+
+    <div id="mySidenav" class="sidenav" style="background-image: url(/static/images/background-3.jpg)">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+    <div class="container_edit">
+        <div class="row">
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br class="mobile_view">
+            <div class="col-md-offset-4 col-md-4 col-sm-4 full_align_edit">
+                <form action="/writer/n_post/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-n_edit">
+                        <h4>News Edit</h4>
+                        <input type="text" name="n_head" class="headding" placeholder="Enter Headding" style="width: 200px" required><br><br>
+                        <textarea placeholder="News Content" name="n_content" style="width: 200px; min-height: 165px;" required></textarea> <br>
+                        <div>
+                            {% for n in n_nation %}
+                                {% if n.id != 4 %}
+                                    <input onchange="toggle_district(this.id,'id_district_div');" name="region" id="{{ n.news_nation }}" type="radio" value="{{ n.id }}"  required/>{{ n.news_nation }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div id="id_district_div" style="display: none">
+                            <div>
+                                <select name="district" onchange="toggle_place();" id="id_district" style="width: 200px;" disabled  required>
+                                    <option value="" >Select Districts</option>
+                                    {% for d in n_district %}
+                                        {% if d.id != 15 %}
+                                            <option value="{{ d.id }}">{{ d.news_district }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <input type="hidden" name="d_district" value="15">
+                            </div>
+                            <br>
+                            <div id="id_place_div" style="display: none">
+                                <select name="place" id="id_place" style="width: 200px;" disabled required>
+                                    <option value="" >Select Place</option>
+                                    {% for d in n_place %}
+                                        {% if d.id != 8 %}
+                                            <option value="{{ d.pk }}">{{ d.news_place }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <input type="hidden" name="d_place" value="8">
+                                <br>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div>
+                            <label for="y_link_on_off" style="padding-left: 5px">You Have Any Video Link</label>
+                            <div>
+                                <input onchange="toggle_y_link_y(this.id,'y_link_div');" name="y_link_radio" id="y_Yes" type="radio" value="Yes"  required/>Yes
+                                <input onchange="toggle_y_link_n(this.id,'y_link_div');" name="y_link_radio" id="y_No" type="radio" value="No"  checked required/>No
+                            </div>
+                        </div>
+
+                        <div class="image_field" id="image_field">
+                            <input type="file" id="file" name="image" accept="image/*" onchange="return fileValidation()" style="border: 1px solid; border-radius: 25px; padding: 0; width: 200px;">
+                            <br>
+                        </div>
+
+                        <div id="y_link_div" style="display: none">
+                            <input type="url" class="y_link" id="y_link" placeholder="Past Link Here!" style="width: 200px" ><br><br>
+                            <input type="hidden" name="y_id" id="y_id">
+                        </div>
+
+                        <div>
+                            <span style="display: none"> <input type="checkbox" name="main_news" id="main_news" value="1" checked></span>
+                            <input type="checkbox" name="main_news" id="main_news" value="2" ><label for="main_news" style="padding-left: 5px">Add Main News</label>
+                        </div>
+                        <br>
+                        <div>
+                            <span style="display: none"> <input type="checkbox" name="breaking_news" value="1" checked></span>
+                            <input type="checkbox" name="breaking_news" id="breaking_news" value="2" ><label for="breaking_news" style="padding-left: 5px">Add Breaking News</label>
+                        </div>
+                        <br>
+
+                        <div class="button">
+                            <input type="submit" name="submit" class="button" value="Post" onclick="youtube_parser()">
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/image_validation.js" %}'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script src='{% static "js/enable_or_desable.js" %}'></script>
+    <script src='{% static "js/ytlinkidgenerate.js" %}'></script>
+    
+</body>
+</html>

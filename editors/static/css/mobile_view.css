@@ -1,0 +1,105 @@
+.mob_name_row{
+    display: none;
+    padding: 0px 0px 0px 30px;
+    margin: 0px;
+}
+.mob_name_col{
+    padding: 10px 0px 10px 0px;
+    margin: 0px;
+}
+.title_head {
+    display: inline;
+    padding: 0 25px;
+    height: 90px;
+    font-family: NotoSansMalayalam-Regular;
+    font-size: 15px;
+    color: #006caa;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+.news_type{
+    display: none;
+}
+.news_type_row{
+    padding: 5px;
+    background-color:#f3f1f1;
+}
+.news_types_div{
+    padding: 5px;
+    text-align: center;
+    border: 1px solid#c7c7c7;
+}
+.mobile_carousel{
+    display: none;
+}
+.n_img_div{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+.title_header{
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-family: NotoSansMalayalam-Regular;
+    font-size: 12px;
+    color: #006caa;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.adv_area_2{
+    display: none;
+}
+
+
+/* MOBILE VIEW*/
+
+@media (max-width:900px) {
+    .mob_name_row{
+        display: contents;
+    }
+    .scrollmenu{
+        margin-top: 10px;
+    }
+    .news_type{
+        display: contents;
+    }
+    .follow_us{
+        display: none;
+    }
+    .adv_area_2 {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+    .namerow{
+        display: none;
+    }
+    .carusel_row{
+        display: none;
+    }
+    .top_brakeline{
+        display: none;
+    }
+    .br_navbar{
+        display: none;
+    }
+    div.scrollmenu {
+         border-radius: 10px;
+    }
+    .mobile_carousel {
+        display: inline;
+        padding: 0px;
+    }
+    .n_img_div{
+        width: 30%;
+        display: inline;
+        float: left;
+    }
+    .title_header {
+        width: 70%;
+        display: inline;
+        float: right;
+    }
+}

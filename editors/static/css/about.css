@@ -1,0 +1,181 @@
+body {
+    margin-top: 0;
+    padding: 0% 5% 0% 5%;
+    font-family: 'Gayathri', sans-serif;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.date{
+    background-color: #333;
+    color: white;
+    height: 40px;
+    padding-top: 10px;
+
+}
+
+.head{
+
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    line-height: 0;
+
+}
+
+h1 {
+    font-family: 'Gayathri', sans-serif;
+}
+
+.slogan{
+    text-align: center;
+    color: red;
+}
+
+.navbar-custom {
+    background-color: rgb(0, 243, 252);
+    text-align: center;
+    font-size: 17px;
+    padding: 2% 0 2% 0;
+    margin-bottom: 2%;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+/*!*div.scrollmenu {*!*/
+    /*!*background-color: #333;*!*/
+    /*!*overflow: auto;*!*/
+    /*!*!* overflow-x: hidden; *!*!*/
+    /*!*white-space: nowrap;*!*/
+    /*!**!*/
+    /*!*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*!*/
+/*!*}*!*/
+
+/*div.scrollmenu a {*/
+    /*display: inline-block;*/
+    /*color: white;*/
+    /*text-align: center;*/
+    /*padding: 0 10px 0 10px;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*div.scrollmenu a:hover {*/
+    /*background-color: #777;*/
+/*}*/
+
+
+/*main area*/
+
+/* .main_area{
+	min-height: 
+} */
+
+.about_content{
+
+   /* padding:100px ;*/
+    /*text-align: center;*/
+    line-height: 2.6rem;
+    font-family: 'Gayathri', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+.about_content_div{
+        padding: 50px;
+    }
+
+.content_head{
+    
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.about_name{
+    /*color: red;*/
+
+    padding-bottom: 10px;
+    padding-bottom: 20px;
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.card {
+    padding: 0px;
+    margin: 0px ;
+    text-align: center;
+    width: 18rem;
+  }
+  
+  .tab1cards {
+    margin: 0px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+  
+
+  }
+
+/* footer */
+#footer{
+	/*position: fixed;*/
+    background-color: #053648;
+    height: 105px;
+}
+.footerclass {
+    text-align: center;
+    /* padding: 7% 15%; */
+    height: 100%;
+    
+}
+
+#footer_para{
+    padding: 0%;
+    margin: 0;
+}
+
+
+.social-icon {
+    margin: 20px 10px;
+}
+
+.col-sm-4{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* MOBILE VIEW*/
+
+@media (max-width:900px) {
+
+    header{
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .content{
+        padding:50px 25px ;
+        text-align: center;
+        line-height: 1.6rem;
+        font-family: 'Gayathri', Arial, Helvetica, sans-serif;
+        font-size: 15px;
+    }
+    .tab1cards{
+        display: block;
+    }
+    .about_content_div{
+        padding: 0px 0px 50px 0px;
+    }
+    .about_content{
+        padding: 0px;
+    }
+    .image_cards{
+        padding-left: 20%;
+    }
+    
+}

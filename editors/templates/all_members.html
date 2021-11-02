@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/login.css" %}>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+    <div id="mySidenav" class="sidenav" style="background-image: url(/static/images/background-3.jpg)">
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+    <div class="container_tbl">
+
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br class="mobile_view">
+
+                <table  class="table ">
+                    <thead ><b> <p style="font-size:30px; text-align: center; color: white"  >Our Editors</p> </b></thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+
+                    {% for m in users %}
+
+                        <tr>
+                            <td>{{ m.id }}</td>
+                            <td>{{ m.first_name }} {{ m.last_name }}</td>
+                            <td>{{ m.email }}</td>
+                            <td>
+                                <form action="/writer/update_user_type/{{ m.pk }}/" class="form-container" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="radio" name="user_type" value="admin">Admin
+                                    <input type="radio" name="user_type" value="editor">Editor
+
+                                        <input type="submit"  class="btn btn-primary" value="Update">
+                                </form>
+                            <td><a href="/writer/allmembers_reject/{{ m.pk }}/" ><input type="button"  class="btn btn-primary" value="Remove"></a></td>
+                        </tr><br>
+                    {% endfor %}
+                </table>
+
+
+    </div>
+
+
+
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+        
+    
+</body>
+</html>

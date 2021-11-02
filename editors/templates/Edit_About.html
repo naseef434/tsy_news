@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+    <link rel="stylesheet" href='{% static "css/edit_about.css" %}'>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+    <div id="mySidenav" class="sidenav" style="background-image: url(/static/images/background-3.jpg)">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+
+
+
+        <div class="container_about_editor">
+        <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+        <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <div class="col-sm-12 content_head" style="color: whitesmoke">
+                ABOUT
+            </div>
+            <div class="col-sm-12 about_content_div" >
+                {% for c in content %}
+                <div class="about_content" style="color: whitesmoke">
+                    {{ c.contant }}
+                </div>
+
+                <a href="/writer/about_delete_content/{{ c.pk }}/"><span style="float: right;cursor: pointer;background-color: whitesmoke;
+                min-width: 50px;min-height:20px;text-align: center;border-radius: 5px">Delete</span></a>
+
+                {% endfor %}
+            <span style="float: right;cursor: pointer;background-color: whitesmoke;
+                min-width: 50px;min-height:20px;text-align: center;border-radius: 5px;margin-right: 15px" onclick="addopenForm()">Add</span>
+
+            </div>
+
+            <div class="form-popup" id="addForm">
+                <form action="/writer/add_about_content/" class="form-container" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="content"><b>Enter Text</b></label>
+                    <textarea class="content" name="content" style="width: 100%;min-height: 300px;"></textarea>
+                    <button type="submit" class="btn">Post</button>
+                    <button type="button" class="btn cancel" onclick="addcloseForm()">Close</button>
+                </form>
+            </div>
+
+
+
+            <div class="col-sm-12 editors_images">
+
+                <div class="col-sm-4 image_cards" onclick="openForm()">
+                    <div class="tab1cards">
+                        <div class="card"  style="border-radius: 15px;border-color: black ">
+                            <i class="fa fa-plus-circle" style="color: whitesmoke;font-size: 180px;padding: 25px"></i>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Add New Members</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-popup" id="myForm">
+                    <form action="/writer/add_about_user/" class="form-container" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="image"><b>Insert Image</b></label>
+                       <div style="margin: 15px">
+                            <input type="file" id="file" name="image" accept="image/*" onchange="return fileValidation()" required style="border: 1px solid; border-radius: 25px; padding: 0; width: 100%;">
+                        </div><br>
+
+                        <label for="u_name"><b>Enter Name</b></label>
+                        <input type="text" placeholder="Enter Name" name="users_name" required>
+
+                        <button type="submit" class="btn">Post</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+
+                {% for details in about_details %}
+                <div class="col-sm-4 image_cards">
+                    <div class="tab1cards">
+                        <div class="card" >
+                            <img class="card-img-top" src={{ details.user_image.url }} alt="Card image cap" width="100%">
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ details.user_name }}</li>
+                                    <li class="list-group-item"><a href="/writer/about_delete_editors/{{ details.pk }}/">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/image_validation.js" %}'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function addopenForm() {
+            document.getElementById("addForm").style.display = "block";
+        }
+
+        function addcloseForm() {
+            document.getElementById("addForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function deleteopenForm() {
+            document.getElementById("deleteForm").style.display = "block";
+        }
+
+        function deletecloseForm() {
+            document.getElementById("deleteForm").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+body{
+    margin: 0;
+    padding: 0px 15px 0px 15px;
+
+}
+.container{
+    padding-top: 90px;
+}
+.container_edit{
+    padding-top: 0px;
+}
+.container_adv{
+    padding-top: 90px;
+}
+.container_tbl{
+    padding-top: 0px;
+}
+.adminpage{
+
+}
+
+.full_align{
+    min-height: 350px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+}
+.table{
+    background-color: whitesmoke;
+    border-radius: 25px;
+    width: 80%;
+    margin-left: 10%;
+}
+.full_align_edit{
+    min-height: 430px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+}
+.full_align_adv{
+    min-height: 230px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+}
+.full_align_pending{
+    min-height: 230px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+}
+.full_align_whatsapp{
+    min-height: 230px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+   margin-top: 25px;
+}
+.container_whatsapp{
+    padding-top: 50px;
+}
+.whatsapp_form{
+    padding-top: 40px;
+}
+.logo_name{
+    text-align: center;
+    font-size: 25px;
+    font-family: gayathri;
+    font-weight: 700;
+    color: white;
+    padding-bottom: 3px;
+    margin: 0;
+    position: relative;
+}
+form{
+    text-align: center;
+}
+.form{
+    text-align: center;
+}
+.form-login{
+    padding-top: 60px;
+}
+.form-reg{
+    padding-top:5px;
+    text-align: center;
+}
+.form_n_edit{
+    padding: 0px;
+    margin: 0px;
+}
+input{
+    
+    border-radius: 5px;
+}
+textarea{
+    border-radius: 5px;
+}
+select{
+    border-radius: 5px;
+}
+.field{
+    min-width: 220px;
+    min-height: 30px;
+    color: black;
+    background-color: rgb(230, 230, 230);
+}
+.button{
+    min-width: 100px;
+    min-height: 30px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #00ffea;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+.image_field{
+    padding-left: 110px;
+}
+@media(max-width: 1055px) {
+    .image_field{
+    padding-left: 51px;
+}
+}
+
+/* MOBILE VIEW*/
+
+@media (max-width:900px) {
+    body{
+        padding: 2px 30px 10px 30px;
+    }
+    .table{
+        margin-left: 0%;
+    }
+    .mobile_view{
+        display: none;
+    }
+    .full_align_edit{
+        min-height: 400px;
+    }
+
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    .image_field {
+        padding-left: 55px;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+    <div id="mySidenav" class="sidenav">
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: rgb(90, 83, 83);" onclick="openNav()">&#9776;</span>
+    <div class="container_edit">
+
+
+
+        <div class="row adminpage">
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br class="mobile_view">
+            <div class="col-md-offset-4 col-md-4 col-sm-4 full_align_edit">
+{#                <form action="/writer/update_profile/" enctype="multipart/form-data">#}
+                <div class="form">
+{#                    {% csrf_token %}#}
+                    <div class="form-n_edit">
+                        <br>
+                        <h3>Profile</h3>
+                        <div class="input_fields">
+                            <div><img src="{{ contact.image }}" id="profileImage" width="100" height="100" style="border-radius: 50px;"></div><br>
+                            <input id="imageUpload" type="file" name="u_image" placeholder="Photo" required="" capture>
+                            <div class="fname-div"><input type="text" name="fname" class="fname field" value="{{ name.first_name }}" placeholder="First Name" readonly></div><br>
+                            <div class="lname-div"><input type="text" name="lname" class="fname field" value="{{ name.last_name }}" placeholder="Last Name" readonly></div><br>
+                            <div class="phone-div"><input type="phone" name="phone" class="phone field" value="{{ contact.phone }}" placeholder="Phone Number" readonly></div><br>
+                            <div class="email-div"><input type="email" name="email" class="email field" value="{{ name.email }}" placeholder="Email" readonly></div><br>
+{#                            <div class="btn-div"><input type="submit" value="Update" class="button"></div><br>#}
+                        </div>
+                    </div>
+                </div>
+{#                </form>#}
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+    <script>
+        $("#profileImage").click(function(e) {
+            $("#imageUpload").click();
+            });
+    </script>
+
+</body>
+</html>

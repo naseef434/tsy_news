@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+    <div class="container">
+        <div class="row">
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br>
+            <div class="col-md-offset-4 col-md-4 col-sm-4 full_align">
+                <form method="post" action="/writer/signin/" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="form-login">
+                        <br>
+                        <h4>LOGIN</h4><br>
+                         {% if messages %}
+                        <span class="messages">
+                            {% for message in messages %}
+                                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                            {% endfor %}
+                        </span><br><br>
+                         {% endif %}
+                        <input type="email" name="u_name" class="field" placeholder="Enter Email"  value="{{ request.form.u_name }}" required><br><br>
+                        <input type="password" name="password" class="field" placeholder="Password" value="{{ request.form.password }}" required>
+                    </div><br><br>
+                    <div class="button">
+                        <input type="submit" name="submit" class="button" value="Login">
+                        <br><br>
+                        <a href="/writer/registration/">Don't have an account?</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    
+</body>
+</html>

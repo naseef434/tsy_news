@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+{% if user.is_authenticated %}
+{% endif %}
+
+    <div id="mySidenav" class="sidenav" style="background-image: url(/static/images/background-3.jpg)">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+    <div class="container_edit">
+        <div class="row">
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br class="mobile_view">
+            <div class="col-md-offset-4 col-md-4 col-sm-4 full_align_edit">
+
+                    <div class="form-n_edit">
+                        <h4 style="text-align: center">News Edit</h4>
+                        <form action="/writer/UpdateNewsHead/{{ news.pk }}/" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" name="n_head" class="headding" placeholder="Enter Headding" value="{{ news.news_title }}" style="width: 290px; height: 65px;" required><br>
+                            <input type="submit" class="btn btn-primary" data-submit-value="please wait" style="width: 65px; height: 25px; padding: 0px; margin: 5px 0px 5px 215px; " class="fa fa-copy" value="Update">
+                        </form>
+
+                        <form action="/writer/UpdateNewsContent/{{ news.pk }}/" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <textarea placeholder="News Content" name="n_content" style="width: 290px; min-height: 270px;" required>{{ news.news_content }}</textarea> <br>
+                            <input type="submit" class="btn btn-primary" style="width: 65px; height: 25px; padding: 0px; margin: 5px 0px 5px 215px;" class="fa fa-copy" value="Update"></a>
+                        </form>
+
+                        <div class="button" style="text-align: center">
+                            <a href="/writer/my_record/" ><input type="button" class="btn btn-primary" style="width: 65px; height: 25px; padding: 0px; margin: 0px;" class="fa fa-copy" value="OK"></a>
+                            &nbsp;&nbsp;
+                            <a href="/writer/my_record/" >cancel</a>
+                        </div>
+
+                        <br>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/image_validation.js" %}'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script src='{% static "js/enable_or_desable.js" %}'></script>
+    <script src='{% static "js/ytlinkidgenerate.js" %}'></script>
+
+</body>
+</html>

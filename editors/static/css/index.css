@@ -1,0 +1,269 @@
+.news_area_row{
+    padding: 0;
+    margin: 0;
+}
+.news_area_frst_col{
+    padding: 0px;
+    margin: 0px;
+}
+.mainnews_img_div{
+    margin: 0px;
+    padding: 0px;
+}
+.main_news_image{
+    width: 100%;
+    height: 200px;
+    padding: 5px 0px 5px 0px;
+}
+.title_head {
+    display: inline;
+    margin: 0px;
+    padding: 0px 0px 0px 25px;
+    font-family: NotoSansMalayalam-Regular;
+    font-size: 12px;
+    color: #006caa;
+    font-weight: bold;
+    line-height: 18px;
+}
+.n_img_div{
+    padding: 0px;
+    margin: 0px;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 60px;
+    width: 110px;
+
+}
+.main_news_image_b{
+    height: 100px;
+    width: 190px;
+}
+.local_news_image{
+    width: 100%;
+    height: 200px;
+}
+
+.main_news_update_sm6{
+    padding: 0px;
+    margin: 0px;
+}
+.mainnews_img_div_sm6{
+    padding: 0px;
+    margin: 0px;
+}
+.main_news_end{
+    margin-bottom: 15px;
+}
+.news_content{
+    margin-top: 5px;
+    padding-top: 5px;
+    font-size: 18px;
+    font-weight: 150;
+    font-style: normal;
+    line-height: 17px;
+}
+.media-body{
+    padding: 0;
+    margin: 0;
+}
+.gulf_news_img{
+    width: 100%;
+    height: 100%;
+    padding-left: 0%;
+    padding-top: 5px;
+    padding-right: 0%;
+}
+.kerala_news_row{
+    margin: 0px;
+}
+.kerala_news_area_content{
+    margin: 0;
+    padding: 0px;
+    padding-right: 9px;
+}
+.kerala_news_area_content_head{
+    margin: 0;
+    padding: 5px 0px 2px 0px;
+    text-align: left;
+}
+.kerala_news_dstct_base{
+    margin: 0;
+    padding: 0;
+}
+.kerala_news_select_district{
+    padding: 0;
+    margin: 0;
+}
+.latest_news{
+    padding: 0;
+    margin: 0;
+    padding: 0px;
+    display: block;
+}
+.heading_news_types{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+}
+.grid-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: #2196F3; */
+
+  }
+  .grid-item {
+    padding: 0;
+    padding-right: 10px;
+    margin: 0;
+    /* font-size: 30px; */
+    /* text-align: center; */
+  }
+  .second_image_1{
+      display: none;
+  }
+  .second_image_2{
+      display: block;
+  }
+  .container{
+      padding-right: 5px;
+      padding-left: 5px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  .for-mobile-view{
+      display: none;
+  }
+  .lcl_table_col{
+       border-right: 1px dotted;
+    }
+  .adv_area_2{
+      display: none;
+  }
+/* MOBILE VIEW*/
+
+@media (max-width:900px) {
+    body {
+        padding: 0px;
+    }
+
+    .scnd_name_img_col {
+        text-align: center;
+    }
+
+    .second_image_1 {
+        display: block;
+    }
+
+    .second_image_2 {
+        display: none;
+    }
+
+    .breaking-news-head {
+        font-size: 10px;
+    }
+
+    .mobile_view_non_hr {
+        display: none;
+    }
+
+    .calender {
+        display: none;
+    }
+
+    .onoffswitch3-active .onoffswitch3-switch {
+        width: 95px;
+    }
+
+    .namerow {
+        display: none;
+    }
+
+    .top_brakeline {
+        display: none;
+    }
+
+    .carousel_row {
+        display: none;
+    }
+
+    .carousel_brakeline {
+        display: none;
+    }
+
+    .date_area {
+        border: none;
+        display: none;
+    }
+
+    .adv_area_2 {
+        display: inline-block;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .adv_b_area{
+        margin: 5px 20px 5px 20px;
+    }
+
+    .adv_area_21 {
+        padding: 0;
+        margin: 10px 0px 10px 0px;
+    }
+    .add_area{
+        display: none;
+    }
+    .scnd_name_img_col {
+        padding: 10px 0px 10px 0px;
+        margin: 0px;
+    }
+
+    .scrollmenu {
+        margin-top: 10px;
+    }
+
+    .gulf_news_img {
+        display: none;
+    }
+    .g-nws-row{
+        padding:0px;
+        margin-left: 15px;
+    }
+    .heading_news_types_lnm{
+        padding: 5px 0px 0px 0px;
+    }
+    .local_news_table{
+        padding: 5px 0px 0px 0px;
+    }
+    .main_news_head_mob{
+        display: inline list-item;
+        list-style: square;
+    }
+    .main_news_head_mob_li{
+        list-style: none;
+    }
+    .main_news_image_b{
+        width: 100%;
+        height: 200px;
+    }
+    .for-mobile-view{
+        display: inline;
+    }
+    .lcl_table_col{
+        border-right: none;
+    }
+    .n_img_div{
+        width: 30%;
+        display: inline;
+        float: left;
+    }
+    .title_head {
+        width: 70%;
+        display: inline;
+        float: right;
+    }
+}

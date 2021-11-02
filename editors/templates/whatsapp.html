@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>താമരശ്ശേരി വാര്‍ത്തകള്‍</title>
+    {% load static %}
+    <link rel="shortcut icon" href='{% static "image/icon.png" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/login.css" %}'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body style="background-image: url(/static/images/background-3.jpg)">
+{% if user.is_authenticated %}
+{% endif %}
+
+    <div id="mySidenav" class="sidenav" style="background-image: url(/static/images/background-3.jpg)">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/writer/edit_corner/"><i class="fas fa-home"></i> Home</a>
+{#        <a href="/writer/view_profile/"><i class="fas fa-id-badge"></i> View Profile</a>#}
+        <a href="/writer/my_record/"><i class="fas fa-book"></i> My Records</a>
+        {% if usertype.user_type == "admin" %}
+            <a href="/writer/all_members/"><i class="fas fa-registered"></i> All Members</a>
+            <a href="/writer/pending_members/"><i class="fas fa-table"></i> Pending Members</a>
+{#            <a href="/writer/whatsapp_link/"><i class="fas fa-link"></i> Whatsapp Link</a>#}
+            <a href="/writer/spl_img/"><i class="fas fa-gift"></i> Special Day Wishes</a>
+            <a href="/writer/edit_about/"><i class="fas fa-edit"></i> Edit About</a>
+        {% endif %}
+        <a href="/writer/adv_page/"><i class="fas fa-user"></i>Post Advertisement</a>
+        <a href="/writer/ad_view/"><i class="fas fa-user"></i>View Advertisement</a>
+        <a href="/writer/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+    <div class="container_whatsapp">
+        <div class="row">
+            <h1 class="logo_name">
+                താമരശ്ശേരി വാര്‍ത്തകള്‍
+            </h1>
+            <br class="mobile_view">
+            <div class="col-md-offset-4 col-md-4 col-sm-4 full_align_whatsapp">
+                <form action="/writer/upload_link/" method="post" enctype="multipart/form-data" class="whatsapp_form">
+                {% csrf_token %}
+                    <div class="form-n_edit">
+
+                        <h4>Whatsapp Link</h4><br>
+
+                        <textarea name="link" class="link" placeholder="Enter Link" style="width: 200px;min-height: 250px;" required></textarea><br><br>
+
+                        <div class="button">
+                            <input type="submit" name="submit" class="button" value="Post">
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><br>
+<table  class="table ">
+
+    <th>id</th>
+    <th>Whatsapp Link</th>
+    <th>Remove</th>
+
+    {% for r in w_link %}
+        <tr>
+            <td id="id_content">{{ r.pk }}</td>
+            <td>{{ r.whatsapp }}</td>
+            <td style="text-align: center">
+                <a href="/writer/whatsapp_reject/{{ r.pk }}/" ><input type="button"  class="btn btn-primary" value="Remove"></a>
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/image_validation.js" %}'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script src='{% static "js/enable_or_desable.js" %}'></script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+.img_colum{
+    float: right;
+    padding: 0px 15px 0px 0px;
+    
+}
+.top_brakeline{
+    margin-top: 1px;
+    margin-bottom: 8px;
+}
+
+#myCarousel {
+    width: 100%;
+    height: 80;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+#carousel_img {
+    width: 100%;
+    height: 100px;
+   
+}
+#scndCarousel {
+    width: 100%;
+    height: 66;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+#scndcarousel_img {
+    width: 100%;
+    height: 66px;
+   
+}
+ol{
+    display: none;
+}
+#news_content {
+    font-size: 13px;
+    font-weight: 150;
+    font-style: normal;
+    line-height: 17px;
+}
+
+
+
+/* date field */
+.date_number_row{
+    padding: 0;
+    margin: 0;
+}
+.date_number{
+    padding: 0;
+    margin: 0;
+    width: 33.333%;
+    color:#333333;
+    font-family: Arial;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    float: left;
+}
+.full_date_field{
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;
+}
+.date_area{
+    border-left: 1px dotted;
+    border-right: 1px dotted;
+}
+/* navigation bar section */
+.navbar-custom {
+    background-color: rgb(0, 243, 252);
+    text-align: center;
+    font-size: 17px;
+    padding: 1% 0 1% 0;
+    margin-bottom: 2%;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.scnd_carousel_col{
+    padding-bottom: 0px;
+}
+
+div.scrollmenu {
+    background-color: #053648;
+    overflow: auto;
+    /* overflow-x: hidden; */
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+
+/* footter */
+
+
+/* footer */
+#footer{
+    background-color: #053648;
+    height: 105px;
+}
+.footerclass {
+    text-align: center;
+    /* padding: 7% 15%; */
+    height: 100%;
+    
+}
+
+#footer_para{
+    color: whitesmoke;
+    padding: 0%;
+    margin: 0;
+}
+
+
+.social-icon {
+    margin: 20px 10px;
+}
+
